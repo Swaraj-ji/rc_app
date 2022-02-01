@@ -15,5 +15,5 @@ const TextStyle kAppbarTitleStyle = TextStyle(
 );
 
 const TextStyle kDrawerListItemTextStyle = TextStyle(
-  fontSize: 20,
+  fontSize: 15,
 );

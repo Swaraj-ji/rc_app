@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:rc_app/constants.dart';
 
-class NotiScreen extends StatefulWidget {
-  const NotiScreen({Key? key}) : super(key: key);
+class ProjectsScreen extends StatefulWidget {
+  const ProjectsScreen({Key? key}) : super(key: key);
 
   @override
-  _NotiScreenState createState() => _NotiScreenState();
+  _ProjectsScreenState createState() => _ProjectsScreenState();
 }
 
-class _NotiScreenState extends State<NotiScreen> {
+class _ProjectsScreenState extends State<ProjectsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +21,7 @@ class _NotiScreenState extends State<NotiScreen> {
             color: Colors.white,
           ),
         ),
-        title: Text(
-          'Notification',
-          style: kAppbarTitleStyle,
-        ),
+        title: Text('Projects'),
       ),
     );
   }
