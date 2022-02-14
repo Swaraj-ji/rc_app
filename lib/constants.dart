@@ -17,3 +17,5 @@ const TextStyle kAppbarTitleStyle = TextStyle(
 const TextStyle kDrawerListItemTextStyle = TextStyle(
   fontSize: 15,
 );
+
+const double kBorderRadius = 10.0;

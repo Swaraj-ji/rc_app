@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Robotics Club',
       theme: ThemeData.light().copyWith(
+        primaryColor: Colors.teal[900],
         appBarTheme: AppBarTheme(
           color: Colors.teal[900],
         ),

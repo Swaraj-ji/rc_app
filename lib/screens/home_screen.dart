@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:rc_app/constants.dart';
 import 'package:rc_app/utils/drawer.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rc_app/utils/floatingactionbutton_style.dart';
+import 'package:rc_app/utils/home_scr_carousel.dart';
+import 'package:rc_app/utils/cards.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,16 +17,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> photos = [
-    'https://www.a1wineandspirit.com/media/yhwie5wr/liquor-large.jpg',
-    'https://images.unsplash.com/photo-1526894198609-10b3cdf45c52',
-    'https://cdn.shopify.com/s/files/1/0284/1372/2703/files/Teremana-social-share_grande.jpg',
-    'https://i.pinimg.com/originals/7f/da/d6/7fdad60a903375223b8b07b0ed697a07.jpg',
-    'https://i2-prod.buzz.ie/incoming/article24278921.ece/ALTERNATES/s1200c/0_peaky-blinders-season-5.jpg',
-  ];
-
-  int _current = 0;
-  final CarouselController _controller = CarouselController();
+  Future<void> _launchURL(String url) async {
+    if (!await launch(
+      url,
+      forceSafariVC: false,
+      forceWebView: false,
+      headers: <String, String>{'my_header_key': 'my_header_value'},
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,93 +39,420 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         drawer: OurDrawer(),
-        body: Column(
+        floatingActionButton: ExpandableFab(
+          distance: 112.0,
           children: [
-            const Text(
-              'Robotics Club',
-              style: TextStyle(
-                fontSize: 50,
-                fontFamily: 'SourceSerifExtraBold',
-              ),
+            ActionButton(
+              onPressed: () {
+                print('Instagram');
+                _launchURL(
+                    'https://www.instagram.com/robotics_club_mmmut/?hl=en');
+              },
+              icon: const Icon(FontAwesomeIcons.instagram),
             ),
-            const Text(
-              'Madan Mahon Malaviya University of Technology',
-              style: TextStyle(fontWeight: FontWeight.bold),
+            ActionButton(
+              onPressed: () {
+                print('Facebook');
+                _launchURL('https://www.facebook.com/roboticsclub.mmmut/');
+              },
+              icon: const Icon(FontAwesomeIcons.facebook),
             ),
-            OurCarouselSlider(),
+            ActionButton(
+              onPressed: () {
+                print('Youtube');
+                _launchURL(
+                    'https://www.youtube.com/channel/UCq1SGYOxepwOHBE8eQcE_Pg/featured');
+              },
+              icon: const Icon(FontAwesomeIcons.youtube),
+            ),
+            ActionButton(
+              onPressed: () {
+                print('Email');
+                _launchURL('mailto:roboticsclub.mmmut@gmail.com');
+              },
+              icon: const Icon(FontAwesomeIcons.envelope),
+            ),
           ],
+        ),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              const Text(
+                'Robotics Club',
+                style: TextStyle(
+                  fontSize: 50,
+                  fontFamily: 'SourceSerifExtraBold',
+                ),
+              ),
+              const Text(
+                'Madan Mahon Malaviya University of Technology',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                child: OurCarouselSlider(
+                  autoPlay: true,
+                  wid: [
+                    HomeScreenFirstCarouselImage(
+                      image:
+                          'https://www.a1wineandspirit.com/media/yhwie5wr/liquor-large.jpg',
+                    ),
+                    HomeScreenFirstCarouselImage(
+                      image:
+                          'https://images.unsplash.com/photo-1526894198609-10b3cdf45c52',
+                    ),
+                    HomeScreenFirstCarouselImage(
+                      image:
+                          'https://cdn.shopify.com/s/files/1/0284/1372/2703/files/Teremana-social-share_grande.jpg',
+                    ),
+                    HomeScreenFirstCarouselImage(
+                      image:
+                          'https://i.pinimg.com/originals/7f/da/d6/7fdad60a903375223b8b07b0ed697a07.jpg',
+                    ),
+                    HomeScreenFirstCarouselImage(
+                      image:
+                          'https://i2-prod.buzz.ie/incoming/article24278921.ece/ALTERNATES/s1200c/0_peaky-blinders-season-5.jpg',
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  OurCards(
+                    child: Row(
+                      children: const [
+                        Icon(FontAwesomeIcons.scroll),
+                        SizedBox(width: 10.0),
+                        Text('Notices'),
+                      ],
+                    ),
+                  ),
+                  // const OurCards(
+                  //   child: Icon(FontAwesomeIcons.instagram),
+                  // ),
+                  // const OurCards(
+                  //   child: Icon(FontAwesomeIcons.facebook),
+                  // ),
+                  // const OurCards(
+                  //   child: Icon(FontAwesomeIcons.youtube),
+                  // ),
+                ],
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 30.0, bottom: 30.0),
+                child: Text(
+                  'Our Major Events',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
+                ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: const [
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    OurCards(
+                      child: OurEventsCardDecor(
+                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                        eventName: 'Robomania',
+                        eventDesc: 'Campus Event',
+                        eventYear: '2021',
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    OurCards(
+                      child: OurEventsCardDecor(
+                        image:
+                            'https://pbs.twimg.com/media/D6c-idvUUAAPWq2.jpg',
+                        eventName: 'Synergia',
+                        eventDesc: 'Online Event',
+                        eventYear: '2021',
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    OurCards(
+                      child: OurEventsCardDecor(
+                        image:
+                            'https://sm.mashable.com/mashable_in/photo/default/got-cover-3_p42q.jpg',
+                        eventName: "Engineer's Week",
+                        eventDesc: 'Online Event',
+                        eventYear: '2021',
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    OurCards(
+                      child: OurEventsCardDecor(
+                        image:
+                            'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/theory-1553634761.jpg',
+                        eventName: 'Cladding The Code',
+                        eventDesc: 'Online Event',
+                        eventYear: '2021',
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    OurCards(
+                      child: OurEventsCardDecor(
+                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                        eventName: 'Web D Classes',
+                        eventDesc: 'Workshop',
+                        eventYear: '2021',
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    OurCards(
+                      child: OurEventsCardDecor(
+                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                        eventName: 'Four Year Challenge',
+                        eventDesc: 'Online Event',
+                        eventYear: '2021',
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 30.0, bottom: 30.0),
+                child: Text(
+                  'UpComing Events',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                child: OurCarouselSlider(
+                  wid: [
+                    OurCards(
+                      child: UpComingEventsCardDecor(
+                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                        eventName: 'Robomania',
+                        eventDesc: 'Campus Event',
+                        eventYear: '2022',
+                      ),
+                    ),
+                    OurCards(
+                      child: UpComingEventsCardDecor(
+                        image:
+                            'https://pbs.twimg.com/media/D6c-idvUUAAPWq2.jpg',
+                        eventName: 'Synergia',
+                        eventDesc: 'Online Event',
+                        eventYear: '2022',
+                      ),
+                    ),
+                    OurCards(
+                      child: UpComingEventsCardDecor(
+                        image:
+                            'https://sm.mashable.com/mashable_in/photo/default/got-cover-3_p42q.jpg',
+                        eventName: "Engineer's Week",
+                        eventDesc: 'Online Event',
+                        eventYear: '2022',
+                      ),
+                    ),
+                    OurCards(
+                      child: UpComingEventsCardDecor(
+                        image:
+                            'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/theory-1553634761.jpg',
+                        eventName: 'Cladding The Code',
+                        eventDesc: 'Online Event',
+                        eventYear: '2022',
+                      ),
+                    ),
+                    OurCards(
+                      child: UpComingEventsCardDecor(
+                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                        eventName: 'Web D Classes',
+                        eventDesc: 'Workshop',
+                        eventYear: '2022',
+                      ),
+                    ),
+                    OurCards(
+                      child: UpComingEventsCardDecor(
+                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                        eventName: 'Four Year Challenge',
+                        eventDesc: 'Online Event',
+                        eventYear: '2022',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-class OurCarouselSlider extends StatelessWidget {
-  List<String> photos = [
-    'https://www.a1wineandspirit.com/media/yhwie5wr/liquor-large.jpg',
-    'https://images.unsplash.com/photo-1526894198609-10b3cdf45c52',
-    'https://cdn.shopify.com/s/files/1/0284/1372/2703/files/Teremana-social-share_grande.jpg',
-    'https://i.pinimg.com/originals/7f/da/d6/7fdad60a903375223b8b07b0ed697a07.jpg',
-    'https://i2-prod.buzz.ie/incoming/article24278921.ece/ALTERNATES/s1200c/0_peaky-blinders-season-5.jpg',
-  ];
+class HomeScreenFirstCarouselImage extends StatelessWidget {
+  final String image;
+  const HomeScreenFirstCarouselImage({required this.image});
 
-  int _current = 0;
-  final CarouselController _controller = CarouselController();
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      margin: EdgeInsets.symmetric(horizontal: 5.0),
+      decoration: BoxDecoration(
+        color: Colors.grey.shade200,
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 20.0,
+          ),
+        ],
+      ),
+      child: Image.network(
+        image,
+        fit: BoxFit.cover,
+        errorBuilder:
+            (BuildContext context, Object exception, StackTrace? stackTrace) {
+          return Image.asset(
+            'images/nointernet.gif',
+          );
+        },
+      ),
+    );
+  }
+}
+
+class UpComingEventsCardDecor extends StatelessWidget {
+  final String image, eventName, eventDesc, eventYear;
+  const UpComingEventsCardDecor(
+      {required this.image,
+      required this.eventName,
+      required this.eventDesc,
+      required this.eventYear});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(kBorderRadius),
+              bottomLeft: Radius.circular(kBorderRadius),
+            ),
+            child: Image.network(
+              image,
+              height: 150,
+              fit: BoxFit.fill,
+              errorBuilder: (BuildContext context, Object exception,
+                  StackTrace? stackTrace) {
+                return Image.asset(
+                  'images/nointernet.gif',
+                );
+              },
+            ),
+          ),
+        ),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                eventName,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+              Text(
+                eventDesc,
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 20,
+                ),
+              ),
+              Text(
+                eventYear,
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class OurEventsCardDecor extends StatelessWidget {
+  final String image, eventName, eventDesc, eventYear;
+  const OurEventsCardDecor(
+      {required this.image,
+      required this.eventName,
+      required this.eventDesc,
+      required this.eventYear});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CarouselSlider(
-          carouselController: _controller,
-          options: CarouselOptions(
-            //aspectRatio: 2.0,
-            height: 200.0,
-            autoPlay: true,
-            enlargeCenterPage: true,
+        ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(kBorderRadius),
+            topRight: Radius.circular(kBorderRadius),
           ),
-          items: [photos[0], photos[1], photos[2], photos[3], photos[4]].map(
-            (i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                    decoration: BoxDecoration(color: Colors.grey.shade200),
-                    child: Image.network(
-                      '$i',
-                      fit: BoxFit.cover,
-                      errorBuilder: (BuildContext context, Object exception,
-                          StackTrace? stackTrace) {
-                        return Image.asset(
-                          'images/nointernet.gif',
-                        );
-                      },
-                    ),
-                  );
-                },
+          child: Image.network(
+            image,
+            width: 300,
+            height: 150,
+            fit: BoxFit.fill,
+            errorBuilder: (BuildContext context, Object exception,
+                StackTrace? stackTrace) {
+              return Image.asset(
+                'images/nointernet.gif',
+                width: 300,
+                height: 150,
+                fit: BoxFit.fill,
               );
             },
-          ).toList(),
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: photos.asMap().entries.map((entry) {
-            return GestureDetector(
-              onTap: () => _controller.animateToPage(entry.key),
-              child: Container(
-                width: 5.0,
-                height: 5.0,
-                margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: (Theme.of(context).brightness == Brightness.dark
-                            ? Colors.white
-                            : Colors.black)
-                        .withOpacity(_current == entry.key ? 0.9 : 0.4)),
-              ),
-            );
-          }).toList(),
+        Text(
+          eventName,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
+        Text(
+          eventDesc,
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 20,
+          ),
+        ),
+        Text(
+          eventYear,
+          style: TextStyle(
+            fontSize: 20,
+          ),
         ),
       ],
     );
