@@ -7,8 +7,8 @@ import 'package:rc_app/screens/developer_screen.dart';
 import 'package:rc_app/screens/gallery_screen.dart';
 import 'package:rc_app/screens/stories_screen.dart';
 import 'package:rc_app/screens/faculties_screen.dart';
-import 'package:rc_app/screens/reach_us_screen.dart';
 import 'package:rc_app/screens/projects_screen.dart';
+import 'package:splash_screen_view/SplashScreenView.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Robotics Club',
       theme: ThemeData.light().copyWith(
-        primaryColor: Colors.teal[900],
+        primaryColor: Colors.teal[600],
         appBarTheme: AppBarTheme(
-          color: Colors.teal[900],
+          color: Colors.teal[600],
         ),
       ),
       routes: {
@@ -35,9 +35,17 @@ class MyApp extends StatelessWidget {
         '/stories': (context) => const StoriesScreen(),
         '/faculties': (context) => const FacultyScreen(),
         '/projects': (context) => const ProjectsScreen(),
-        '/reach_us': (context) => const ReachUsScreen(),
       },
-      initialRoute: '/splash',
+      home: Scaffold(
+        body: SplashScreenView(
+          navigateRoute: SplashScreen(),
+          duration: 3000,
+          imageSize: 130,
+          imageSrc: "images/rc_logo.jpg",
+          backgroundColor: Colors.white,
+        ),
+      ),
+      //initialRoute: '/splash',
       //home: SplashScreen(),
     );
   }

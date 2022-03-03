@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rc_app/constants.dart';
 
 class StoriesScreen extends StatefulWidget {
   const StoriesScreen({Key? key}) : super(key: key);
@@ -22,6 +23,14 @@ class _StoriesScreenState extends State<StoriesScreen> {
           ),
         ),
         title: Text('Stories'),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(backGroundImage),
+          ),
+        ),
       ),
     );
   }

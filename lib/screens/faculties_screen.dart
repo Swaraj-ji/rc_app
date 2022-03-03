@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rc_app/constants.dart';
 
 class FacultyScreen extends StatefulWidget {
   const FacultyScreen({Key? key}) : super(key: key);
@@ -22,6 +23,14 @@ class _FacultyScreenState extends State<FacultyScreen> {
           ),
         ),
         title: Text('Faculty Involve'),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(backGroundImage),
+          ),
+        ),
       ),
     );
   }

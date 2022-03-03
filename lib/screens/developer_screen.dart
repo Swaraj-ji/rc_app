@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rc_app/constants.dart';
 
 class DeveloperScreen extends StatefulWidget {
   const DeveloperScreen({Key? key}) : super(key: key);
@@ -22,6 +24,14 @@ class _DeveloperScreenState extends State<DeveloperScreen> {
           ),
         ),
         title: Text('Developers'),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(backGroundImage),
+          ),
+        ),
       ),
     );
     ;

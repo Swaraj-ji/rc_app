@@ -98,15 +98,6 @@ class _OurDrawerState extends State<OurDrawer> {
               },
             ),
           ),
-          Container(
-            child: OurListTile(
-              icon: Icons.mail,
-              text: 'Reach Us',
-              onPress: () {
-                Navigator.pushNamed(context, '/reach_us');
-              },
-            ),
-          ),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rc_app/constants.dart';
 
 class ProjectsScreen extends StatefulWidget {
   const ProjectsScreen({Key? key}) : super(key: key);
@@ -22,6 +23,14 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
           ),
         ),
         title: Text('Projects'),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(backGroundImage),
+          ),
+        ),
       ),
     );
   }

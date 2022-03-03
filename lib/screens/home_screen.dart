@@ -74,174 +74,186 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              const Text(
-                'Robotics Club',
-                style: TextStyle(
-                  fontSize: 50,
-                  fontFamily: 'SourceSerifExtraBold',
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(backGroundImage),
+            ),
+          ),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: [
+                const Text(
+                  'Robotics Club',
+                  style: TextStyle(
+                    fontSize: 50,
+                    fontFamily: 'SourceSerifExtraBold',
+                  ),
                 ),
-              ),
-              const Text(
-                'Madan Mahon Malaviya University of Technology',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                child: OurCarouselSlider(
-                  autoPlay: true,
-                  wid: [
-                    HomeScreenFirstCarouselImage(
-                      image:
-                          'https://www.a1wineandspirit.com/media/yhwie5wr/liquor-large.jpg',
+                const Text(
+                  'Madan Mahon Malaviya University of Technology',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                  child: OurCarouselSlider(
+                    autoPlay: true,
+                    wid: [
+                      HomeScreenFirstCarouselImage(
+                        image:
+                            'https://www.a1wineandspirit.com/media/yhwie5wr/liquor-large.jpg',
+                      ),
+                      HomeScreenFirstCarouselImage(
+                        image:
+                            'https://images.unsplash.com/photo-1526894198609-10b3cdf45c52',
+                      ),
+                      HomeScreenFirstCarouselImage(
+                        image:
+                            'https://cdn.shopify.com/s/files/1/0284/1372/2703/files/Teremana-social-share_grande.jpg',
+                      ),
+                      HomeScreenFirstCarouselImage(
+                        image:
+                            'https://i.pinimg.com/originals/7f/da/d6/7fdad60a903375223b8b07b0ed697a07.jpg',
+                      ),
+                      HomeScreenFirstCarouselImage(
+                        image:
+                            'https://i2-prod.buzz.ie/incoming/article24278921.ece/ALTERNATES/s1200c/0_peaky-blinders-season-5.jpg',
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    OurCards(
+                      child: Row(
+                        children: const [
+                          Icon(FontAwesomeIcons.scroll),
+                          SizedBox(width: 10.0),
+                          Text('Notices'),
+                        ],
+                      ),
                     ),
-                    HomeScreenFirstCarouselImage(
-                      image:
-                          'https://images.unsplash.com/photo-1526894198609-10b3cdf45c52',
-                    ),
-                    HomeScreenFirstCarouselImage(
-                      image:
-                          'https://cdn.shopify.com/s/files/1/0284/1372/2703/files/Teremana-social-share_grande.jpg',
-                    ),
-                    HomeScreenFirstCarouselImage(
-                      image:
-                          'https://i.pinimg.com/originals/7f/da/d6/7fdad60a903375223b8b07b0ed697a07.jpg',
-                    ),
-                    HomeScreenFirstCarouselImage(
-                      image:
-                          'https://i2-prod.buzz.ie/incoming/article24278921.ece/ALTERNATES/s1200c/0_peaky-blinders-season-5.jpg',
-                    ),
+                    // const OurCards(
+                    //   child: Icon(FontAwesomeIcons.instagram),
+                    // ),
+                    // const OurCards(
+                    //   child: Icon(FontAwesomeIcons.facebook),
+                    // ),
+                    // const OurCards(
+                    //   child: Icon(FontAwesomeIcons.youtube),
+                    // ),
                   ],
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  OurCards(
-                    child: Row(
-                      children: const [
-                        Icon(FontAwesomeIcons.scroll),
-                        SizedBox(width: 10.0),
-                        Text('Notices'),
-                      ],
-                    ),
-                  ),
-                  // const OurCards(
-                  //   child: Icon(FontAwesomeIcons.instagram),
-                  // ),
-                  // const OurCards(
-                  //   child: Icon(FontAwesomeIcons.facebook),
-                  // ),
-                  // const OurCards(
-                  //   child: Icon(FontAwesomeIcons.youtube),
-                  // ),
-                ],
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 30.0, bottom: 30.0),
-                child: Text(
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
                   'Our Major Events',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
                   ),
                 ),
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: const [
-                    SizedBox(
-                      width: 20.0,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    child: Row(
+                      children: const [
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                        OurCards(
+                          child: OurEventsCardDecor(
+                            image:
+                                'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                            eventName: 'Robomania',
+                            eventDesc: 'Campus Event',
+                            eventYear: '2021',
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                        OurCards(
+                          child: OurEventsCardDecor(
+                            image:
+                                'https://pbs.twimg.com/media/D6c-idvUUAAPWq2.jpg',
+                            eventName: 'Synergia',
+                            eventDesc: 'Online Event',
+                            eventYear: '2021',
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                        OurCards(
+                          child: OurEventsCardDecor(
+                            image:
+                                'https://sm.mashable.com/mashable_in/photo/default/got-cover-3_p42q.jpg',
+                            eventName: "Engineer's Week",
+                            eventDesc: 'Online Event',
+                            eventYear: '2021',
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                        OurCards(
+                          child: OurEventsCardDecor(
+                            image:
+                                'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/theory-1553634761.jpg',
+                            eventName: 'Cladding The Code',
+                            eventDesc: 'Online Event',
+                            eventYear: '2021',
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                        OurCards(
+                          child: OurEventsCardDecor(
+                            image:
+                                'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                            eventName: 'Web D Classes',
+                            eventDesc: 'Workshop',
+                            eventYear: '2021',
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                        OurCards(
+                          child: OurEventsCardDecor(
+                            image:
+                                'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                            eventName: 'Four Year Challenge',
+                            eventDesc: 'Online Event',
+                            eventYear: '2021',
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                      ],
                     ),
-                    OurCards(
-                      child: OurEventsCardDecor(
-                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
-                        eventName: 'Robomania',
-                        eventDesc: 'Campus Event',
-                        eventYear: '2021',
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20.0,
-                    ),
-                    OurCards(
-                      child: OurEventsCardDecor(
-                        image:
-                            'https://pbs.twimg.com/media/D6c-idvUUAAPWq2.jpg',
-                        eventName: 'Synergia',
-                        eventDesc: 'Online Event',
-                        eventYear: '2021',
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20.0,
-                    ),
-                    OurCards(
-                      child: OurEventsCardDecor(
-                        image:
-                            'https://sm.mashable.com/mashable_in/photo/default/got-cover-3_p42q.jpg',
-                        eventName: "Engineer's Week",
-                        eventDesc: 'Online Event',
-                        eventYear: '2021',
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20.0,
-                    ),
-                    OurCards(
-                      child: OurEventsCardDecor(
-                        image:
-                            'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/theory-1553634761.jpg',
-                        eventName: 'Cladding The Code',
-                        eventDesc: 'Online Event',
-                        eventYear: '2021',
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20.0,
-                    ),
-                    OurCards(
-                      child: OurEventsCardDecor(
-                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
-                        eventName: 'Web D Classes',
-                        eventDesc: 'Workshop',
-                        eventYear: '2021',
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20.0,
-                    ),
-                    OurCards(
-                      child: OurEventsCardDecor(
-                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
-                        eventName: 'Four Year Challenge',
-                        eventDesc: 'Online Event',
-                        eventYear: '2021',
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20.0,
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 30.0, bottom: 30.0),
-                child: Text(
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
                   'UpComing Events',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
                   ),
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
-                child: OurCarouselSlider(
+                OurCarouselSlider(
+                  paddingTopBottom: 10.0,
                   wid: [
                     OurCards(
                       child: UpComingEventsCardDecor(
@@ -296,8 +308,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
