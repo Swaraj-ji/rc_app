@@ -27,6 +27,14 @@ class _NotiScreenState extends State<NotiScreen> {
           style: kAppbarTitleStyle,
         ),
       ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(backGroundImage),
+          ),
+        ),
+      ),
     );
   }
 }

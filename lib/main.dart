@@ -7,7 +7,6 @@ import 'package:rc_app/screens/developer_screen.dart';
 import 'package:rc_app/screens/gallery_screen.dart';
 import 'package:rc_app/screens/stories_screen.dart';
 import 'package:rc_app/screens/faculties_screen.dart';
-import 'package:rc_app/screens/reach_us_screen.dart';
 import 'package:rc_app/screens/projects_screen.dart';
 
 void main() {
@@ -35,7 +34,7 @@ class MyApp extends StatelessWidget {
         '/stories': (context) => const StoriesScreen(),
         '/faculties': (context) => const FacultyScreen(),
         '/projects': (context) => const ProjectsScreen(),
-        '/reach_us': (context) => const ReachUsScreen(),
+        // '/reach_us': (context) => const ReachUsScreen(),
       },
       initialRoute: '/splash',
       //home: SplashScreen(),

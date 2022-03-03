@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rc_app/constants.dart';
+import 'package:rc_app/utils/cards.dart';
+import 'package:rc_app/utils/home_scr_carousel.dart';
+import 'package:rc_app/utils/members_information.dart';
 
 class MemberScreen extends StatefulWidget {
   const MemberScreen({Key? key}) : super(key: key);
@@ -12,6 +15,19 @@ class MemberScreen extends StatefulWidget {
 
 class _MemberScreenState extends State<MemberScreen> {
   bool selected1 = false, selected2 = false, selected3 = false;
+
+  void showSheet(List<List<String>> batch) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (_) {
+        return OurDraggableScrollableSheet(
+          whichBatch: batch,
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,93 +45,103 @@ class _MemberScreenState extends State<MemberScreen> {
           ),
           title: Text('Members'),
         ),
-        body: SingleChildScrollView(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(backGroundImage),
+            ),
+          ),
           child: Column(
-            // shrinkWrap: true,
-            // primary: false,
             children: [
-              Column(
-                children: [
-                  AnimatedContainer(
-                    height: !selected1 ? 200 : null,
-                    //height: 200,
-                    duration: const Duration(seconds: 1),
-                    color: Color(0xFF2A8274),
-                    child: ExpansionTile(
-                      title: Text("2022"),
-                      children: [
-                        ListView(
-                          shrinkWrap: true,
-                          primary: false,
-                          children: [
-                            MembersCard(),
-                            MembersCard(),
-                            MembersCard(),
-                            MembersCard(),
-                          ],
-                        )
-                      ],
-                      onExpansionChanged: (value) {
-                        setState(() {
-                          selected1 = value;
-                        });
-                      },
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    showSheet(faculty);
+                  },
+                  child: Container(
+                    child: Center(
+                      child: Text(
+                        'Faculties',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Color(0xFF066856),
+                      borderRadius: BorderRadius.circular(kBorderRadius),
                     ),
                   ),
-                  AnimatedContainer(
-                    height: !selected2 ? 200 : null,
-                    //height: 200,
-                    duration: const Duration(seconds: 2),
-                    color: Color(0xFF3AAA97),
-                    child: ExpansionTile(
-                      title: Text("2023"),
-                      onExpansionChanged: (value) {
-                        setState(() {
-                          selected2 = value;
-                        });
-                      },
-                      children: [
-                        ListView(
-                          shrinkWrap: true,
-                          primary: false,
-                          children: [
-                            MembersCard(),
-                            MembersCard(),
-                            MembersCard(),
-                            MembersCard(),
-                          ],
-                        )
-                      ],
+                ),
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    showSheet(finalYear);
+                  },
+                  child: Container(
+                    child: Center(
+                      child: Text(
+                        'Batch of 2022',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Color(0xFF0AB191),
+                      borderRadius: BorderRadius.circular(kBorderRadius),
                     ),
                   ),
-                  AnimatedContainer(
-                    height: !selected3 ? 200 : null,
-                    //height: 200,
-                    duration: const Duration(seconds: 2),
-                    color: Color(0xFF43CDB5),
-                    child: ExpansionTile(
-                      title: Text("2024"),
-                      onExpansionChanged: (value) {
-                        setState(() {
-                          selected3 = value;
-                        });
-                      },
-                      children: [
-                        ListView(
-                          shrinkWrap: true,
-                          primary: false,
-                          children: [
-                            MembersCard(),
-                            MembersCard(),
-                            MembersCard(),
-                            MembersCard(),
-                          ],
-                        )
-                      ],
+                ),
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    showSheet(thirdYear);
+                  },
+                  child: Container(
+                    child: Center(
+                      child: Text(
+                        'Batch of 2023',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Color(0xFF0AF3C7),
+                      borderRadius: BorderRadius.circular(kBorderRadius),
                     ),
                   ),
-                ],
-              )
+                ),
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    showSheet(secYear);
+                  },
+                  child: Container(
+                    child: Center(
+                      child: Text(
+                        'Batch of 2024',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Color(0xFF5AEED2),
+                      borderRadius: BorderRadius.circular(kBorderRadius),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -128,10 +154,50 @@ class _MemberScreenState extends State<MemberScreen> {
 // color: Color(0xFFE94592),
 // color: Color(0xFFF5B2D1),
 
+class OurDraggableScrollableSheet extends StatelessWidget {
+  final List<List<String>> whichBatch;
+  OurDraggableScrollableSheet({required this.whichBatch});
+
+  @override
+  Widget build(BuildContext context) {
+    return DraggableScrollableSheet(
+      maxChildSize: 0.8,
+      expand: false,
+      builder: (_, controller) {
+        return Container(
+          padding: EdgeInsets.only(top: 20.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+            color: Colors.white60,
+          ),
+          child: ListView.builder(
+            controller: controller,
+            itemCount: whichBatch.length,
+            itemBuilder: (context, index) {
+              return MembersCard(
+                name: whichBatch[index][0],
+                branch: whichBatch[index][1],
+                designation: whichBatch[index][2],
+                image: whichBatch[index][3],
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+}
+
 class MembersCard extends StatelessWidget {
-  const MembersCard({
-    Key? key,
-  }) : super(key: key);
+  final String name;
+  final String branch;
+  final String designation;
+  final String image;
+  const MembersCard(
+      {required this.name,
+      required this.branch,
+      required this.designation,
+      required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -160,17 +226,17 @@ class MembersCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Name",
+                '$name',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20.0),
               ),
               Text(
-                "Branch",
+                '$branch',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20.0),
               ),
               Text(
-                "Designation",
+                '$designation',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20.0),
               ),
@@ -180,7 +246,7 @@ class MembersCard extends StatelessWidget {
         Positioned(
           bottom: 190.0,
           child: CircleAvatar(
-            backgroundImage: AssetImage('images/rc_logo.jpg'),
+            backgroundImage: AssetImage('$image'),
             radius: 50.0,
           ),
         ),
