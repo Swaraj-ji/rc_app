@@ -25,6 +25,9 @@ List<List<String>> finalYear = [
     'CSE',
     'President',
     'member_images/final_year/photo1.jpg',
+    'https://instagram.com/mohit_goku_07?utm_medium=copy_link',
+    'https://www.facebook.com/profile.php?id=100011548575820',
+    'https://www.linkedin.com/in/mohit-pandey-33574a1b1',
   ],
   [
     'Shivam Srivastava',
@@ -48,7 +51,7 @@ List<List<String>> finalYear = [
     'Anupam Prakash',
     'CSE',
     'Treasurer',
-    'member_images/final_year/photo5.jpg'
+    'member_images/final_year/photo5.jpeg'
   ],
   [
     'Anita Singh',
@@ -66,7 +69,10 @@ List<List<String>> finalYear = [
     'Divyansh Kumar',
     'ECE',
     'Managing Lead',
-    'member_images/final_year/photo8.jpg'
+    'member_images/final_year/photo8.jpg',
+    'https://www.instagram.com/divyanshkumr/',
+    'https://www.facebook.com/divyansh.kumar.98871/',
+    'https://www.linkedin.com/in/divyansh-k-81851b108',
   ],
   [
     'Abhishek Kumar Yadav',
@@ -164,7 +170,10 @@ List<List<String>> thirdYear = [
     'Harsh Kumar Bharti',
     'CSE',
     'Designing Lead',
-    'member_images/third_year/photo4.jpg'
+    'member_images/third_year/photo4.jpeg',
+    'https://www.instagram.com/hb_cricketer7/',
+    'https://www.facebook.com/harsh.bharti.146',
+    'https://www.linkedin.com/in/harsh-kumar-bharti-385b601ba',
   ],
   [
     'Prakhar Saxena',
@@ -257,6 +266,24 @@ List<List<String>> thirdYear = [
     'member_images/third_year/photo18.jpg'
   ],
   [
+    'Harsh Sehgal',
+    'ECE',
+    'Executive Member',
+    'member_images/third_year/photo20.jpg'
+  ],
+  [
+    'Mrityunjay Upadhyay',
+    'ECE',
+    'Executive Member',
+    'member_images/third_year/photo21.jpg'
+  ],
+  [
+    'Krishna Saxena',
+    'ECE',
+    'Executive Member',
+    'member_images/third_year/photo22.jpg'
+  ],
+  [
     'Shantanu Tiwari',
     'ECE',
     'Managing Lead',
@@ -267,63 +294,124 @@ List<List<String>> thirdYear = [
 
 List<List<String>> secYear = [
   [
-    'Johnny Depp',
-    'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Abhay Kumar Singh',
+    'CE',
+    'Executive Member',
+    'member_images/second_year/photo1.jpg'
   ],
   [
-    'Johnny Depp',
+    'Akash Singh',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo2.jpg'
   ],
   [
-    'Johnny Depp',
+    'Akriti Srivastava',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo3.jpg'
   ],
   [
-    'Johnny Depp',
+    'Akshat Agarwal',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo4.png'
   ],
   [
-    'Johnny Depp',
+    'Akshay Singh Khushwaha',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo5.jpg'
   ],
   [
-    'Johnny Depp',
+    'Anikat Chaurasia',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo6.jpg'
   ],
   [
-    'Johnny Depp',
+    'Ankit Garg',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo7.jpg'
   ],
   [
-    'Johnny Depp',
+    'Anushka Yadav',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo8.jpg'
   ],
   [
-    'Johnny Depp',
+    'Archana Chaurasiya',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo9.jpeg'
   ],
   [
-    'Johnny Depp',
+    'Arunesh Kumar Sagar',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo10.jpg'
   ],
+  [
+    'Ashish Patel',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo11.jpg'
+  ],
+  [
+    'Ishika Gupta',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo12.jpeg'
+  ],
+  [
+    'Kshitiz Patel',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo13.jpg'
+  ],
+  [
+    'Mohhamad Ifham',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo14.jpg'
+  ],
+  [
+    'Nitesh Rawat',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo15.jpg'
+  ],
+  [
+    'Nitesh Kumar Singh',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo16.png'
+  ],
+  [
+    'Pragya Gupta',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo17.jpg'
+  ],
+  [
+    'Priyanshi Verma',
+    'ME',
+    'Executive Member',
+    'member_images/second_year/photo18.jpg'
+  ],
+  [
+    'Rohit Jaiswal',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo19.jpeg'
+  ],
+  [
+    'Utkarsh Verma',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo20.jpg'
+  ],
+
 ];

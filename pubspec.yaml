@@ -43,6 +43,7 @@ flutter:
   - images/
   - member_images/final_year/
   - member_images/third_year/
+  - member_images/second_year/
 
   fonts:
     - family: SourceSerifExtraBold
