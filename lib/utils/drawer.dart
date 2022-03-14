@@ -15,7 +15,7 @@ class _OurDrawerState extends State<OurDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Column(
+      child: ListView(
         children: [
           UserAccountsDrawerHeader(
             currentAccountPictureSize: Size.fromRadius(45),
@@ -29,14 +29,13 @@ class _OurDrawerState extends State<OurDrawer> {
                 child: Image.asset(
                   'images/rc_logo.jpg',
                   fit: BoxFit.cover,
-                  width: 10,
-                  height: 10,
+                  width: 90,
+                  height: 90,
                 ),
               ),
             ),
           ),
           Container(
-            padding: EdgeInsets.all(1),
             child: OurListTile(
               icon: Icons.notifications_active,
               text: 'Notification',
@@ -121,7 +120,6 @@ class _OurListTileState extends State<OurListTile> {
     return Column(
       children: [
         ListTile(
-          contentPadding: EdgeInsets.all(2),
           leading: Icon(widget.icon),
           title: Text(
             widget.text,
@@ -133,8 +131,8 @@ class _OurListTileState extends State<OurListTile> {
         ),
         const Divider(
           thickness: 1,
-          indent: 2,
-          endIndent: 2,
+          indent: 10,
+          endIndent: 10,
           color: Colors.black,
         ),
       ],

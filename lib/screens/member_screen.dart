@@ -57,28 +57,6 @@ class _MemberScreenState extends State<MemberScreen> {
               Expanded(
                 child: TextButton(
                   onPressed: () {
-                    showSheet(faculty);
-                  },
-                  child: Container(
-                    child: Center(
-                      child: Text(
-                        'Faculties',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color(0xFF066856),
-                      borderRadius: BorderRadius.circular(kBorderRadius),
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
                     showSheet(finalYear);
                   },
                   child: Container(
@@ -246,7 +224,7 @@ class MembersCard extends StatelessWidget {
         Positioned(
           bottom: 190.0,
           child: CircleAvatar(
-            backgroundImage: AssetImage('$image'),
+            backgroundImage: NetworkImage('$image'),
             radius: 50.0,
           ),
         ),

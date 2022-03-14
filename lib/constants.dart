@@ -21,3 +21,5 @@ const TextStyle kDrawerListItemTextStyle = TextStyle(
 const double kBorderRadius = 10.0;
 
 const String backGroundImage = 'images/light-wool.png';
+
+const TextStyle kFacultyCardNameTextStyle = TextStyle(fontSize: 15);

@@ -2,9 +2,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:rc_app/screens/home_screen.dart';
 import 'package:rc_app/constants.dart';
-import 'package:splash_screen_view/SplashScreenView.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -18,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     print('Inside Init');
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, '/home');
     });
   }
@@ -36,40 +34,16 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           children: [
             Expanded(
-              flex: 2,
-              // child: Image.asset(
-              //   'images/rc_logo.jpg',
-              //   scale: 5.0,
-              //   alignment: AlignmentDirectional.bottomCenter,
-              // ),
-              child: Align(
-                alignment: AlignmentDirectional.bottomCenter,
-                child: CircleAvatar(
-                  radius: 200.0,
-                  backgroundColor: Colors.transparent,
-                  child: ClipOval(
-                    child: Image.asset(
-                      'images/rc_logo.jpg',
-                      fit: BoxFit.cover,
-                      width: 200,
-                      height: 200,
-                    ),
-                  ),
-                ),
+              flex: 4,
+              child: Image.asset(
+                'images/rc_logo.png',
+                fit: BoxFit.cover,
+                //width: 200,
+                //height: 100,
               ),
             ),
-            const Expanded(
-                flex: 1,
-                child: SpinKitSpinningLines(
-                  color: Colors.black,
-                  size: 100,
-                )
-                // child: SpinKitDancingSquare(
-                //   color: Colors.black,
-                //   size: 100,
-                // ),
-                ),
             Expanded(
+              flex: 1,
               child: Column(
                 children: const [
                   Text(
