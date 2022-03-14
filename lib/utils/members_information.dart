@@ -17,145 +17,379 @@ List<List<String>> faculty = [
     'Professor',
     'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tom-hardy-james-bond-1600873138.jpg'
   ],
-  [
-    'Tom Hardy',
-    'Mech.',
-    'Professor',
-    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tom-hardy-james-bond-1600873138.jpg'
-  ],
 ];
 
 List<List<String>> finalYear = [
   [
-    'Cillian Murphy',
-    'Mech.',
+    'Mohit Pandey',
+    'CSE',
     'President',
-    'https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/21/1464198499-peaky.jpg'
+    'member_images/final_year/photo1.jpg',
+    'https://instagram.com/mohit_goku_07?utm_medium=copy_link',
+    'https://www.facebook.com/profile.php?id=100011548575820',
+    'https://www.linkedin.com/in/mohit-pandey-33574a1b1',
   ],
   [
-    'Cillian Murphy',
-    'Mech.',
-    'President',
-    'https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/21/1464198499-peaky.jpg'
+    'Shivam Srivastava',
+    'EE',
+    'Vice President',
+    'member_images/final_year/photo2.jpg',
   ],
   [
-    'Cillian Murphy',
-    'Mech.',
-    'President',
-    'https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/21/1464198499-peaky.jpg'
+    'Maitreyaei Upadhayay',
+    'ECE',
+    'Vice President',
+    'member_images/final_year/photo3.jpg'
   ],
   [
-    'Cillian Murphy',
-    'Mech.',
-    'President',
-    'https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/21/1464198499-peaky.jpg'
+    'Sandeep Shah',
+    'CSE',
+    'Vice President',
+    'member_images/final_year/photo4.jpeg'
   ],
   [
-    'Cillian Murphy',
-    'Mech.',
-    'President',
-    'https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/21/1464198499-peaky.jpg'
+    'Anupam Prakash',
+    'CSE',
+    'Treasurer',
+    'member_images/final_year/photo5.jpeg'
   ],
+  [
+    'Anita Singh',
+    'EE',
+    'Joint Secretary',
+    'member_images/final_year/photo6.jpeg'
+  ],
+  [
+    'Devendra Pratap Singh',
+    'ECE',
+    'Joint Secretary',
+    'member_images/final_year/photo7.jpeg'
+  ],
+  [
+    'Divyansh Kumar',
+    'ECE',
+    'Managing Lead',
+    'member_images/final_year/photo8.jpg',
+    'https://www.instagram.com/divyanshkumr/',
+    'https://www.facebook.com/divyansh.kumar.98871/',
+    'https://www.linkedin.com/in/divyansh-k-81851b108',
+  ],
+  [
+    'Abhishek Kumar Yadav',
+    'CSE',
+    'Web and App development',
+    'member_images/final_year/photo9.jpg'
+  ],
+  [
+    'Aditya Kumar',
+    'ECE',
+    'Web and app development',
+    'member_images/final_year/photo10.jpg'
+  ],
+  [
+    'Shreyash Sharma',
+    'ECE',
+    'Designing Head',
+    'member_images/final_year/photo11.jpg'
+  ],
+  [
+    'Aditi Singh Morya',
+    'ECE',
+    'Editorial Lead',
+    'member_images/final_year/photo12.jpeg'
+  ],
+  [
+    'Sudhanshu Yadav',
+    'ECE',
+    'Media and Publicity Head',
+    'member_images/final_year/photo13.jpg'
+  ],
+  [
+    'Samiksha Bidua',
+    'CHE',
+    'Media and Publicity Head',
+    'member_images/final_year/photo14.jpeg'
+  ],
+  [
+    'Shraddhanjali Yadav',
+    'CSE',
+    'Technical Head',
+    'member_images/final_year/photo15.jpeg'
+  ],
+  [
+    'Avinash Pandey',
+    'CHE',
+    'Technical Head',
+    'member_images/final_year/photo16.jpeg'
+  ],
+  [
+    'Manu Saini',
+    'EE',
+    'Technical Head',
+    'member_images/final_year/photo17.jpg'
+  ],
+  [
+    'Prakhar Singh Tomar',
+    'CSE',
+    'Creative Head',
+    'member_images/final_year/photo18.jpg'
+  ],
+  [
+    'Naveen Mishra',
+    'CE',
+    'Creative Head',
+    'member_images/final_year/photo19.jpg'
+  ],
+  ['Minal Mishra', 'ECE', 'Mentor', 'member_images/final_year/photo12.jpeg'],
+  ['Pratyush Rai', 'CSE', 'Mentor', 'member_images/final_year/photo20.jpg'],
 ];
 
 List<List<String>> thirdYear = [
   [
-    'Tom Cruise',
+    'Sanskar Srivastava',
     'CSE',
-    'xyz',
-    'https://img.mensxp.com/media/content/2021/Jul/Tom-Cruise-Trolled-For-Looking-Old-At-Wimbledon1200_60ec340542298.jpeg'
+    'Web Designing Lead',
+    'member_images/third_year/photo1.jpg'
   ],
   [
-    'Tom Cruise',
-    'CSE',
-    'xyz',
-    'https://img.mensxp.com/media/content/2021/Jul/Tom-Cruise-Trolled-For-Looking-Old-At-Wimbledon1200_60ec340542298.jpeg'
+    'Prakrity Srivastava',
+    'IT',
+    'Web Designing Lead',
+    'member_images/third_year/photo2.jpeg'
   ],
   [
-    'Tom Cruise',
-    'CSE',
-    'xyz',
-    'https://img.mensxp.com/media/content/2021/Jul/Tom-Cruise-Trolled-For-Looking-Old-At-Wimbledon1200_60ec340542298.jpeg'
+    'Prateek Jain',
+    'ECE',
+    'Web Designing Lead',
+    'member_images/third_year/photo3.jpeg',
+    'insta',
+    'facebook',
+    'linkdin',
   ],
   [
-    'Tom Cruise',
+    'Harsh Kumar Bharti',
     'CSE',
-    'xyz',
-    'https://img.mensxp.com/media/content/2021/Jul/Tom-Cruise-Trolled-For-Looking-Old-At-Wimbledon1200_60ec340542298.jpeg'
+    'Designing Lead',
+    'member_images/third_year/photo4.jpeg',
+    'https://www.instagram.com/hb_cricketer7/',
+    'https://www.facebook.com/harsh.bharti.146',
+    'https://www.linkedin.com/in/harsh-kumar-bharti-385b601ba',
   ],
   [
-    'Tom Cruise',
-    'CSE',
-    'xyz',
-    'https://img.mensxp.com/media/content/2021/Jul/Tom-Cruise-Trolled-For-Looking-Old-At-Wimbledon1200_60ec340542298.jpeg'
+    'Prakhar Saxena',
+    'IT',
+    'Designing Lead',
+    'member_images/third_year/photo5.jpg'
   ],
   [
-    'Tom Cruise',
+    'Twinkle Sharma',
     'CSE',
-    'xyz',
-    'https://img.mensxp.com/media/content/2021/Jul/Tom-Cruise-Trolled-For-Looking-Old-At-Wimbledon1200_60ec340542298.jpeg'
+    'Designing Lead',
+    'member_images/third_year/photo6.jpeg'
+  ],
+  [
+    'Pranjul pal',
+    'CSE',
+    'Designing Lead',
+    'member_images/third_year/photo7.jpg'
+  ],
+  ['Sonali', 'ECE', 'Technical Lead', 'member_images/third_year/photo8.png'],
+  ['Dipti', 'CSE', 'Technical Lead', 'member_images/third_year/photo9.jpg'],
+  [
+    'Gireesh Vishwakarma',
+    'CSE',
+    'Technical Lead',
+    'member_images/third_year/photo10.jpg'
+  ],
+  [
+    'Aditya Kumar Gupta',
+    'CSE',
+    'Technical Lead',
+    'member_images/third_year/photo10.jpg'
+  ],
+  [
+    'Nimit Didwania',
+    'CSE',
+    'Editorial Lead',
+    'member_images/third_year/photo11.jpg'
+  ],
+  ['Anushka', 'EE', 'Editorial Lead', 'member_images/third_year/photo12.jpeg'],
+  [
+    'Avantika Singh',
+    'EE',
+    'Editorial Lead',
+    'member_images/third_year/photo13.jpg'
+  ],
+  ['Deep Jha', 'CSE', 'Editorial Lead', 'member_images/third_year/photo14.jpg'],
+  [
+    'Alisha Singh',
+    'IT',
+    'Managing Lead',
+    'member_images/third_year/photo15.jpg'
+  ],
+  [
+    'Ayush Kumar',
+    'ECE',
+    'Managing Lead',
+    'member_images/third_year/photo16.jpeg'
+  ],
+  [
+    'Anubhav Omar',
+    'CSE',
+    'Managing Lead',
+    'member_images/third_year/photo17.jpg'
+  ],
+  [
+    'Swaraj Ji Srivastava',
+    'CSE',
+    'Marketing Lead',
+    'member_images/third_year/photo18.jpg'
+  ],
+  [
+    'Harsh Sehgal',
+    'ECE',
+    'Executive Member',
+    'member_images/third_year/photo20.jpg'
+  ],
+  [
+    'Mrityunjay Upadhyay',
+    'ECE',
+    'Executive Member',
+    'member_images/third_year/photo21.jpg'
+  ],
+  [
+    'Krishna Saxena',
+    'ECE',
+    'Executive Member',
+    'member_images/third_year/photo22.jpg'
+  ],
+  [
+    'Shantanu Tiwari',
+    'ECE',
+    'Managing Lead',
+    'member_images/third_year/photo19.jpg'
   ],
 ];
 
 List<List<String>> secYear = [
   [
-    'Johnny Depp',
-    'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Abhay Kumar Singh',
+    'CE',
+    'Executive Member',
+    'member_images/second_year/photo1.jpg'
   ],
   [
-    'Johnny Depp',
+    'Akash Singh',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo2.jpg'
   ],
   [
-    'Johnny Depp',
+    'Akriti Srivastava',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo3.jpg'
   ],
   [
-    'Johnny Depp',
+    'Akshat Agarwal',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo4.png'
   ],
   [
-    'Johnny Depp',
+    'Akshay Singh Khushwaha',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo5.jpg'
   ],
   [
-    'Johnny Depp',
+    'Anikat Chaurasia',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo6.jpg'
   ],
   [
-    'Johnny Depp',
+    'Ankit Garg',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo7.jpg'
   ],
   [
-    'Johnny Depp',
+    'Anushka Yadav',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo8.jpg'
   ],
   [
-    'Johnny Depp',
+    'Archana Chaurasiya',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo9.jpeg'
   ],
   [
-    'Johnny Depp',
+    'Arunesh Kumar Sagar',
     'ECE',
-    'xyz',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Johnny_Depp_Deauville_2019.jpg/640px-Johnny_Depp_Deauville_2019.jpg'
+    'Executive Member',
+    'member_images/second_year/photo10.jpg'
+  ],
+  [
+    'Ashish Patel',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo11.jpg'
+  ],
+  [
+    'Ishika Gupta',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo12.jpeg'
+  ],
+  [
+    'Kshitiz Patel',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo13.jpg'
+  ],
+  [
+    'Mohhamad Ifham',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo14.jpg'
+  ],
+  [
+    'Nitesh Rawat',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo15.jpg'
+  ],
+  [
+    'Nitesh Kumar Singh',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo16.png'
+  ],
+  [
+    'Pragya Gupta',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo17.jpg'
+  ],
+  [
+    'Priyanshi Verma',
+    'ME',
+    'Executive Member',
+    'member_images/second_year/photo18.jpg'
+  ],
+  [
+    'Rohit Jaiswal',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo19.jpeg'
+  ],
+  [
+    'Utkarsh Verma',
+    'ECE',
+    'Executive Member',
+    'member_images/second_year/photo20.jpg'
   ],
 ];
