@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rc_app/constants.dart';
 import 'package:rc_app/utils/cards.dart';
-import 'package:rc_app/utils/floatingactionbutton_style.dart';
-import 'package:rc_app/utils/home_scr_carousel.dart';
-import 'package:rc_app/utils/members_information.dart';
 import 'package:rc_app/utils/profile_screen.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class FacultyScreen extends StatefulWidget {
   const FacultyScreen({Key? key}) : super(key: key);
@@ -48,15 +44,15 @@ class _FacultyScreenState extends State<FacultyScreen> {
               children: [
                 FacultyCard(
                   name: 'Dr. B.K. Pandey',
-                  image: thirdYear[0][3],
+                  image: 'member_images/faculty/bkp.jpg',
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return ProfileScreen(
+                          return const ProfileScreen(
                             name: 'Dr. B.K. Pandey',
-                            image: thirdYear[1][3],
+                            image: 'member_images/faculty/bkp.jpg',
                             mail: 'mailto:roboticsclub.mmmut@gmail.com',
                           );
                         },
@@ -66,15 +62,15 @@ class _FacultyScreenState extends State<FacultyScreen> {
                 ),
                 FacultyCard(
                   name: 'Dr. Rajan Mishra',
-                  image: thirdYear[1][3],
+                  image: 'member_images/faculty/drrm.jpg',
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return ProfileScreen(
+                          return const ProfileScreen(
                             name: 'Dr. Rajan Mishra',
-                            image: thirdYear[1][3],
+                            image: 'member_images/faculty/drrm.jpg',
                             mail: 'mailto:rajanmishra1231@gmail.com',
                           );
                         },
@@ -89,15 +85,15 @@ class _FacultyScreenState extends State<FacultyScreen> {
               children: [
                 FacultyCard(
                   name: 'Dr. Dharmendra Kumar',
-                  image: thirdYear[2][3],
+                  image: 'member_images/faculty/drdk.jpg',
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return ProfileScreen(
+                          return const ProfileScreen(
                             name: 'Dr. Dharmendra Kumar',
-                            image: thirdYear[1][3],
+                            image: 'member_images/faculty/drdk.jpg',
                             mail: 'mailto:dkece@mmmut.ac.in',
                           );
                         },
@@ -107,15 +103,15 @@ class _FacultyScreenState extends State<FacultyScreen> {
                 ),
                 FacultyCard(
                   name: 'Dr. B.P. Pandey',
-                  image: thirdYear[3][3],
+                  image: 'member_images/faculty/drbpp.jpg',
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return ProfileScreen(
+                          return const ProfileScreen(
                             name: 'Dr. B.P. Pandey',
-                            image: thirdYear[3][3],
+                            image: 'member_images/faculty/drbpp.jpg',
                             mail: 'mailto:bppece@mmmut.ac.in',
                           );
                         },
@@ -149,8 +145,8 @@ class FacultyCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                thirdYear[1][3],
+              backgroundImage: AssetImage(
+                image,
               ),
               radius: 70.0,
             ),

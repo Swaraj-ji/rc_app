@@ -70,7 +70,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
           ),
         ),
         title: Text(
-          'Notification',
+          'Gallery',
           style: kAppbarTitleStyle,
         ),
       ),

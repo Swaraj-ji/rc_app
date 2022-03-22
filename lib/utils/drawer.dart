@@ -53,15 +53,15 @@ class _OurDrawerState extends State<OurDrawer> {
               },
             ),
           ),
-          Container(
-            child: OurListTile(
-              icon: Icons.build_outlined,
-              text: 'Developers',
-              onPress: () {
-                Navigator.pushNamed(context, 'developer');
-              },
-            ),
-          ),
+          // Container(
+          //   child: OurListTile(
+          //     icon: Icons.build_outlined,
+          //     text: 'Developers',
+          //     onPress: () {
+          //       Navigator.pushNamed(context, 'developer');
+          //     },
+          //   ),
+          // ),
           Container(
             child: OurListTile(
               icon: Icons.image_rounded,

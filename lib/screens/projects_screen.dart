@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:rc_app/constants.dart';
 import 'package:rc_app/services/networking.dart';
 import 'package:rc_app/services/youtube_data.dart';
@@ -129,7 +130,12 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
       //   ),
       // ),
       body: loading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(
+              child: SpinKitSpinningLines(
+                color: Colors.black,
+                size: 100,
+              ),
+            )
           : ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,

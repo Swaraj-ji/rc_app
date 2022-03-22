@@ -128,6 +128,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OurCards(
+                      colour: Color(0xFF00897B),
+                      ontap: () {
+                        Navigator.pushNamed(context, '/noti');
+                      },
                       child: Row(
                         children: const [
                           Icon(FontAwesomeIcons.scroll),
@@ -307,6 +311,52 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                  child: Divider(
+                    indent: 15,
+                    endIndent: 15,
+                    thickness: 2,
+                    color: Color(0xFF00897B),
+                  ),
+                ),
+                Text(
+                  'This is the Official App of Robotics Club',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Contact Us',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                          color: Color(0xFF024E47),
+                        ),
+                      ),
+                      Text('Madan Mohan Malaviya University of Technology,'),
+                      Text('Gorakhpur, Uttar Pradesh'),
+                      Text('Phone No. ')
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  child: Text(
+                    'Developers: Swaraj & Shantanu',
+                    style: TextStyle(
+                      color: Color(0xFF00897B),
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),

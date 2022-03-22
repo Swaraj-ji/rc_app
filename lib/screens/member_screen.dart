@@ -224,7 +224,7 @@ class MembersCard extends StatelessWidget {
         Positioned(
           bottom: 190.0,
           child: CircleAvatar(
-            backgroundImage: NetworkImage('$image'),
+            backgroundImage: AssetImage(image),
             radius: 50.0,
           ),
         ),

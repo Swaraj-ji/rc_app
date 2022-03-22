@@ -37,8 +37,8 @@ class _SplashScreenState extends State<SplashScreen> {
               flex: 4,
               child: Image.asset(
                 'images/rc_logo.png',
-                fit: BoxFit.cover,
-                //width: 200,
+                fit: BoxFit.fitWidth,
+                width: 400,
                 //height: 100,
               ),
             ),
