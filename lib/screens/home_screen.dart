@@ -2,8 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rc_app/constants.dart';
+import 'package:rc_app/data/events_data.dart';
+import 'package:rc_app/data/posters_data.dart';
 import 'package:rc_app/utils/drawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rc_app/utils/events_screen.dart';
 import 'package:rc_app/utils/floatingactionbutton_style.dart';
 import 'package:rc_app/utils/home_scr_carousel.dart';
 import 'package:rc_app/utils/cards.dart';
@@ -75,13 +78,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
               image: AssetImage(backGroundImage),
             ),
           ),
           child: SingleChildScrollView(
+            //physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
@@ -96,30 +100,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Madan Mahon Malaviya University of Technology',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                   child: OurCarouselSlider(
                     autoPlay: true,
                     wid: [
                       HomeScreenFirstCarouselImage(
-                        image:
-                            'https://www.a1wineandspirit.com/media/yhwie5wr/liquor-large.jpg',
+                        image: homeScreenCarouselPosters[0],
                       ),
                       HomeScreenFirstCarouselImage(
-                        image:
-                            'https://images.unsplash.com/photo-1526894198609-10b3cdf45c52',
+                        image: homeScreenCarouselPosters[1],
                       ),
                       HomeScreenFirstCarouselImage(
-                        image:
-                            'https://cdn.shopify.com/s/files/1/0284/1372/2703/files/Teremana-social-share_grande.jpg',
+                        image: homeScreenCarouselPosters[2],
                       ),
                       HomeScreenFirstCarouselImage(
-                        image:
-                            'https://i.pinimg.com/originals/7f/da/d6/7fdad60a903375223b8b07b0ed697a07.jpg',
+                        image: homeScreenCarouselPosters[3],
                       ),
                       HomeScreenFirstCarouselImage(
-                        image:
-                            'https://i2-prod.buzz.ie/incoming/article24278921.ece/ALTERNATES/s1200c/0_peaky-blinders-season-5.jpg',
+                        image: homeScreenCarouselPosters[4],
                       ),
                     ],
                   ),
@@ -166,90 +165,156 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Padding(
                     padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                     child: Row(
-                      children: const [
+                      children: [
                         SizedBox(
                           width: 20.0,
                         ),
                         OurCards(
                           child: OurEventsCardDecor(
-                            image:
-                                'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                            image: eventImage["robomania"].toString(),
                             eventName: 'Robomania',
                             eventDesc: 'Campus Event',
                             eventYear: '2021',
                           ),
+                          ontap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return EventsScreen(
+                                    frame: getRobomania(),
+                                  );
+                                },
+                              ),
+                            );
+                          },
                         ),
                         SizedBox(
                           width: 20.0,
                         ),
                         OurCards(
                           child: OurEventsCardDecor(
-                            image:
-                                'https://pbs.twimg.com/media/D6c-idvUUAAPWq2.jpg',
+                            image: eventImage["synergia"].toString(),
                             eventName: 'Synergia',
                             eventDesc: 'Online Event',
                             eventYear: '2021',
                           ),
+                          ontap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return EventsScreen(
+                                    frame: getSynergia(),
+                                  );
+                                },
+                              ),
+                            );
+                          },
                         ),
                         SizedBox(
                           width: 20.0,
                         ),
                         OurCards(
                           child: OurEventsCardDecor(
-                            image:
-                                'https://sm.mashable.com/mashable_in/photo/default/got-cover-3_p42q.jpg',
+                            image: eventImage["EnggWeek"].toString(),
                             eventName: "Engineer's Week",
                             eventDesc: 'Online Event',
                             eventYear: '2021',
                           ),
+                          ontap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return EventsScreen(
+                                    frame: getEngWeek(),
+                                  );
+                                },
+                              ),
+                            );
+                          },
                         ),
                         SizedBox(
                           width: 20.0,
                         ),
                         OurCards(
                           child: OurEventsCardDecor(
-                            image:
-                                'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/theory-1553634761.jpg',
+                            image: eventImage["CTC"].toString(),
                             eventName: 'Cladding The Code',
                             eventDesc: 'Online Event',
                             eventYear: '2021',
                           ),
+                          ontap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return EventsScreen(
+                                    frame: getCladdingTheCode(),
+                                  );
+                                },
+                              ),
+                            );
+                          },
                         ),
                         SizedBox(
                           width: 20.0,
                         ),
                         OurCards(
                           child: OurEventsCardDecor(
-                            image:
-                                'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                            image: eventImage["WebD"].toString(),
                             eventName: 'Web D Classes',
                             eventDesc: 'Workshop',
                             eventYear: '2021',
                           ),
+                          ontap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return EventsScreen(
+                                    frame: getWebDev(),
+                                  );
+                                },
+                              ),
+                            );
+                          },
                         ),
                         SizedBox(
                           width: 20.0,
                         ),
                         OurCards(
                           child: OurEventsCardDecor(
-                            image:
-                                'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                            image: eventImage["4_year"].toString(),
                             eventName: 'Four Year Challenge',
                             eventDesc: 'Online Event',
                             eventYear: '2021',
                           ),
+                          ontap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return EventsScreen(
+                                    frame: getFourYearChallenge(),
+                                  );
+                                },
+                              ),
+                            );
+                          },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 20.0,
                         ),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                Text(
+                const Text(
                   'UpComing Events',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -261,7 +326,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   wid: [
                     OurCards(
                       child: UpComingEventsCardDecor(
-                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                        image: upcomingEventPosters[0],
                         eventName: 'Robomania',
                         eventDesc: 'Campus Event',
                         eventYear: '2022',
@@ -269,8 +334,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     OurCards(
                       child: UpComingEventsCardDecor(
-                        image:
-                            'https://pbs.twimg.com/media/D6c-idvUUAAPWq2.jpg',
+                        image: upcomingEventPosters[1],
                         eventName: 'Synergia',
                         eventDesc: 'Online Event',
                         eventYear: '2022',
@@ -278,8 +342,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     OurCards(
                       child: UpComingEventsCardDecor(
-                        image:
-                            'https://sm.mashable.com/mashable_in/photo/default/got-cover-3_p42q.jpg',
+                        image: upcomingEventPosters[2],
                         eventName: "Engineer's Week",
                         eventDesc: 'Online Event',
                         eventYear: '2022',
@@ -287,8 +350,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     OurCards(
                       child: UpComingEventsCardDecor(
-                        image:
-                            'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/theory-1553634761.jpg',
+                        image: upcomingEventPosters[3],
                         eventName: 'Cladding The Code',
                         eventDesc: 'Online Event',
                         eventYear: '2022',
@@ -296,7 +358,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     OurCards(
                       child: UpComingEventsCardDecor(
-                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                        image: upcomingEventPosters[4],
                         eventName: 'Web D Classes',
                         eventDesc: 'Workshop',
                         eventYear: '2022',
@@ -304,7 +366,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     OurCards(
                       child: UpComingEventsCardDecor(
-                        image: 'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
+                        image: upcomingEventPosters[5],
                         eventName: 'Four Year Challenge',
                         eventDesc: 'Online Event',
                         eventYear: '2022',
@@ -312,8 +374,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                const Padding(
+                  padding: EdgeInsets.only(top: 20, bottom: 20),
                   child: Divider(
                     indent: 15,
                     endIndent: 15,
@@ -321,7 +383,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Color(0xFF00897B),
                   ),
                 ),
-                Text(
+                const Text(
                   'This is the Official App of Robotics Club',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -331,7 +393,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.only(top: 20, bottom: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         'Contact Us',
                         textAlign: TextAlign.left,
@@ -343,19 +405,44 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Text('Madan Mohan Malaviya University of Technology,'),
                       Text('Gorakhpur, Uttar Pradesh'),
-                      Text('Phone No. ')
+                      Text('Phone No.: +91-7318536429'),
+                      Text("Email: roboticsclub.mmmut@gmail.com")
                     ],
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10.0),
-                  child: Text(
-                    'Developers: Swaraj & Shantanu',
-                    style: TextStyle(
-                      color: Color(0xFF00897B),
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Developers: ',
+                        style: kDevelopersLineTextStyle,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL(
+                              'https://www.instagram.com/swaraj_ji_srivastava/');
+                        },
+                        child: const Text(
+                          'Swaraj ',
+                          style: kDevelopersTextStyle,
+                        ),
+                      ),
+                      const Text(
+                        '&',
+                        style: kDevelopersLineTextStyle,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _launchURL('https://www.instagram.com/shaaaannn_/');
+                        },
+                        child: const Text(
+                          ' Shantanu',
+                          style: kDevelopersTextStyle,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

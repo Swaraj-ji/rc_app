@@ -20,15 +20,15 @@ class ImageViewerScreen extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          actions: [
-            TextButton(
-              onPressed: () {},
-              child: Icon(
-                Icons.download,
-                color: Colors.white,
-              ),
-            ),
-          ],
+          // actions: [
+          //   TextButton(
+          //     onPressed: () {},
+          //     child: Icon(
+          //       Icons.download,
+          //       color: Colors.white,
+          //     ),
+          //   ),
+          // ],
         ),
         body: Container(
           decoration: BoxDecoration(

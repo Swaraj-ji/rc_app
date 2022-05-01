@@ -12,6 +12,12 @@ class FacultyScreen extends StatefulWidget {
 
 class _FacultyScreenState extends State<FacultyScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -135,6 +141,11 @@ class FacultyCard extends StatelessWidget {
   const FacultyCard(
       {required this.name, required this.image, required this.onTap});
 
+  double deviceHeight(BuildContext context) =>
+      MediaQuery.of(context).size.height;
+
+  double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
+
   @override
   Widget build(BuildContext context) {
     return OurCards(
@@ -143,7 +154,12 @@ class FacultyCard extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: EdgeInsets.only(
+              top: deviceHeight(context) * 0.014,
+              left: deviceWidth(context) * 0.024,
+              bottom: deviceHeight(context) * 0.014,
+              right: deviceWidth(context) * 0.024,
+            ),
             child: CircleAvatar(
               backgroundImage: AssetImage(
                 image,

@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Robotics Club',
       theme: ThemeData.light().copyWith(
         primaryColor: Colors.teal[600],
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: SplashScreenView(
           navigateRoute: SplashScreen(),
-          duration: 3000,
+          duration: 2000,
           imageSize: 300,
           imageSrc: "images/rc_logo.png",
           backgroundColor: Colors.white,

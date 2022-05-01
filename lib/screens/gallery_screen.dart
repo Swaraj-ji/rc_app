@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:rc_app/constants.dart';
+import 'package:rc_app/services/firestore_services.dart';
 import 'package:rc_app/utils/image_viewer_screen.dart';
 
 class GalleryScreen extends StatefulWidget {
@@ -11,21 +13,15 @@ class GalleryScreen extends StatefulWidget {
 }
 
 class _GalleryScreenState extends State<GalleryScreen> {
-  List<String> img = [
-    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tom-hardy-james-bond-1600873138.jpg',
-    'https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/21/1464198499-peaky.jpg',
-    'https://www.a1wineandspirit.com/media/yhwie5wr/liquor-large.jpg',
-    'https://images.unsplash.com/photo-1526894198609-10b3cdf45c52',
-    'https://i.pinimg.com/originals/7f/da/d6/7fdad60a903375223b8b07b0ed697a07.jpg',
-    'https://pbs.twimg.com/media/D6c-idvUUAAPWq2.jpg',
-    'https://sm.mashable.com/mashable_in/photo/default/got-cover-3_p42q.jpg',
-    'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
-    'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
-  ];
-
   List<Widget> galleryImages = [];
 
-  void makeList() {
+  bool loading = false;
+  Future<void> makeList() async {
+    setState(() {
+      loading = true;
+    });
+    FirebaseStoreGallery fs = FirebaseStoreGallery();
+    List<String> img = await fs.listGallery();
     for (String a in img) {
       galleryImages.add(
         GestureDetector(
@@ -41,8 +37,11 @@ class _GalleryScreenState extends State<GalleryScreen> {
               ),
             );
           },
-          child: Image(
-            image: NetworkImage(a),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+            child: Image(
+              image: NetworkImage(a),
+            ),
           ),
         ),
       );
@@ -53,7 +52,11 @@ class _GalleryScreenState extends State<GalleryScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    makeList();
+    makeList().whenComplete(() => {
+          setState(() {
+            loading = false;
+          })
+        });
   }
 
   @override
@@ -64,32 +67,47 @@ class _GalleryScreenState extends State<GalleryScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios_sharp,
             color: Colors.white,
           ),
         ),
-        title: Text(
+        title: const Text(
           'Gallery',
           style: kAppbarTitleStyle,
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(backGroundImage),
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: StaggeredGrid.count(
-            crossAxisCount: 2,
-            mainAxisSpacing: 4.0,
-            crossAxisSpacing: 4.0,
-            children: galleryImages,
-          ),
-        ),
-      ),
+      body: loading
+          ? const Center(
+              child: SpinKitSpinningLines(
+                color: Colors.black,
+                size: 100,
+              ),
+            )
+          : SingleChildScrollView(
+              child: StaggeredGrid.count(
+                crossAxisCount: 2,
+                mainAxisSpacing: 8.0,
+                crossAxisSpacing: 8.0,
+                children: galleryImages,
+              ),
+            ),
+      // body: Container(
+      //   decoration: BoxDecoration(
+      //     image: DecorationImage(
+      //       fit: BoxFit.cover,
+      //       image: AssetImage(backGroundImage),
+      //     ),
+      //   ),
+      //   child: SingleChildScrollView(
+      //     child: StaggeredGrid.count(
+      //       crossAxisCount: 2,
+      //       mainAxisSpacing: 4.0,
+      //       crossAxisSpacing: 4.0,
+      //       children: galleryImages,
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

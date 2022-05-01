@@ -23,6 +23,7 @@ dependencies:
   http: ^0.13.4
   firebase_storage: ^10.2.9
   firebase_core: ^1.13.1
+  change_app_package_name: ^1.0.0
 
 
 

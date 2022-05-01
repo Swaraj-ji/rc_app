@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:rc_app/constants.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:rc_app/services/firestore_services.dart';
@@ -23,36 +24,40 @@ class _NotiScreenState extends State<NotiScreen> {
   //   'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
   //   'https://i.ibb.co/0YJgJxT/1-Game-of-thrones.jpg',
   // ];
+
   List<Widget> notices = [];
+  bool loading = false;
   Future<void> makeList() async {
+    setState(() {
+      loading = true;
+    });
     FirebaseStore fs = FirebaseStore();
-    print('Here=========');
     List<String> img = await fs.listNoti();
-    print('=======================');
-    for (String a in img) print(a);
-    // if (img.isNotEmpty) {
-    //   for (String a in img) {
-    //     notices.add(
-    //       GestureDetector(
-    //         onTap: () {
-    //           Navigator.push(
-    //             context,
-    //             MaterialPageRoute(
-    //               builder: (context) {
-    //                 return ImageViewerScreen(
-    //                   image: a,
-    //                 );
-    //               },
-    //             ),
-    //           );
-    //         },
-    //         child: Image(
-    //           image: NetworkImage(a),
-    //         ),
-    //       ),
-    //     );
-    //   }
-    // }
+    print("Completed Fetch");
+    // for (String a in img)
+    //   print('yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee $a');
+
+    for (String a in img) {
+      notices.add(
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return ImageViewerScreen(
+                    image: a,
+                  );
+                },
+              ),
+            );
+          },
+          child: Image(
+            image: NetworkImage(a),
+          ),
+        ),
+      );
+    }
   }
 
   @override
@@ -61,6 +66,11 @@ class _NotiScreenState extends State<NotiScreen> {
     super.initState();
     print('Make list called');
     makeList();
+    makeList().whenComplete(() => {
+          setState(() {
+            loading = false;
+          })
+        });
   }
 
   @override
@@ -71,32 +81,49 @@ class _NotiScreenState extends State<NotiScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios_sharp,
             color: Colors.white,
           ),
         ),
-        title: Text(
+        title: const Text(
           'Notification',
           style: kAppbarTitleStyle,
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(backGroundImage),
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: StaggeredGrid.count(
-            crossAxisCount: 2,
-            mainAxisSpacing: 4.0,
-            crossAxisSpacing: 4.0,
-            children: notices,
-          ),
-        ),
-      ),
+      body: loading
+          ? const Center(
+              child: SpinKitSpinningLines(
+                color: Colors.black,
+                size: 100,
+              ),
+            )
+          : SingleChildScrollView(
+              child: StaggeredGrid.count(
+                crossAxisCount: 2,
+                mainAxisSpacing: 4.0,
+                crossAxisSpacing: 4.0,
+                children: notices,
+              ),
+            ),
+      // body: Container(
+      //   decoration: const BoxDecoration(
+      //     image: DecorationImage(
+      //       fit: BoxFit.cover,
+      //       image: AssetImage(backGroundImage),
+      //     ),
+      //   ),
+      //   child: loading
+      //       ? const CircularProgressIndicator()
+      //       : SingleChildScrollView(
+      //           child: StaggeredGrid.count(
+      //             crossAxisCount: 2,
+      //             mainAxisSpacing: 4.0,
+      //             crossAxisSpacing: 4.0,
+      //             children: notices,
+      //           ),
+      //         ),
+      // ),
     );
   }
 }

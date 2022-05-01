@@ -39,3 +39,22 @@ const TextStyle kFacultyCardNameTextStyle = TextStyle(fontSize: 15);
 const TextStyle kTabTextStyle = TextStyle(
   fontSize: 20,
 );
+
+const TextStyle kDevelopersLineTextStyle = TextStyle(
+  color: Color(0xFF00897B),
+  fontStyle: FontStyle.italic,
+  fontWeight: FontWeight.bold,
+);
+
+const TextStyle kDevelopersTextStyle = TextStyle(
+  color: Color(0xFF01534B),
+  fontStyle: FontStyle.italic,
+  fontWeight: FontWeight.bold,
+);
+
+BoxShadow kBoxShadow = BoxShadow(
+  color: Colors.grey.withOpacity(0.2),
+  spreadRadius: 2,
+  blurRadius: 8,
+  offset: Offset(0, 0),
+);

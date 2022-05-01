@@ -1,4 +1,4 @@
-package com.example.rc_app
+package com.roboticsclubmmmut.rc_app
 
 import io.flutter.embedding.android.FlutterActivity
 

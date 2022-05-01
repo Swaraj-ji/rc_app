@@ -34,7 +34,7 @@ class ProfileScreen extends StatelessWidget {
                     flex: 1,
                     child: Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage('images/techbackground.jpg'),
@@ -48,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.arrow_back_ios_sharp,
                                   color: Colors.white,
                                 ),
@@ -69,21 +69,26 @@ class ProfileScreen extends StatelessWidget {
                     flex: 1,
                     child: Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage(backGroundImage),
                         ),
                       ),
-                      child: Text(name),
+                      child: Center(
+                        child: Text(
+                          name,
+                          style: kHeadingTextStyle,
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
               Center(
                 child: OurCards(
-                  colour: Color(0xFF00897B),
-                  child: Icon(
+                  colour: const Color(0xFF00897B),
+                  child: const Icon(
                     Icons.mail_outline,
                     size: 40,
                   ),

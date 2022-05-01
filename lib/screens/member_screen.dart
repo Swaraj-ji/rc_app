@@ -4,7 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rc_app/constants.dart';
 import 'package:rc_app/utils/cards.dart';
 import 'package:rc_app/utils/home_scr_carousel.dart';
-import 'package:rc_app/utils/members_information.dart';
+import 'package:rc_app/data/members_information.dart';
+import 'package:rc_app/utils/image_viewer_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MemberScreen extends StatefulWidget {
   const MemberScreen({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class MemberScreen extends StatefulWidget {
 class _MemberScreenState extends State<MemberScreen> {
   bool selected1 = false, selected2 = false, selected3 = false;
 
-  void showSheet(List<List<String>> batch) {
+  void showSheet(List<Map<String, String>> batch) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -101,7 +103,7 @@ class _MemberScreenState extends State<MemberScreen> {
               Expanded(
                 child: TextButton(
                   onPressed: () {
-                    showSheet(secYear);
+                    showSheet(secondYear);
                   },
                   child: Container(
                     child: Center(
@@ -133,7 +135,7 @@ class _MemberScreenState extends State<MemberScreen> {
 // color: Color(0xFFF5B2D1),
 
 class OurDraggableScrollableSheet extends StatelessWidget {
-  final List<List<String>> whichBatch;
+  final List<Map<String, String>> whichBatch;
   OurDraggableScrollableSheet({required this.whichBatch});
 
   @override
@@ -153,10 +155,13 @@ class OurDraggableScrollableSheet extends StatelessWidget {
             itemCount: whichBatch.length,
             itemBuilder: (context, index) {
               return MembersCard(
-                name: whichBatch[index][0],
-                branch: whichBatch[index][1],
-                designation: whichBatch[index][2],
-                image: whichBatch[index][3],
+                name: whichBatch[index]['name'].toString(),
+                //branch: whichBatch[index]['branch'].toString(),
+                designation: whichBatch[index]['role'].toString(),
+                image: whichBatch[index]['img'].toString(),
+                insta: whichBatch[index]['ig'].toString(),
+                fb: whichBatch[index]['fb'].toString(),
+                linkedin: whichBatch[index]['linkedin'].toString(),
               );
             },
           ),
@@ -168,14 +173,31 @@ class OurDraggableScrollableSheet extends StatelessWidget {
 
 class MembersCard extends StatelessWidget {
   final String name;
-  final String branch;
+  //final String branch;
   final String designation;
   final String image;
+  final String insta;
+  final String fb;
+  final String linkedin;
   const MembersCard(
       {required this.name,
-      required this.branch,
+      //required this.branch,
       required this.designation,
-      required this.image});
+      required this.image,
+      required this.insta,
+      required this.fb,
+      required this.linkedin});
+
+  Future<void> _launchURL(String url) async {
+    if (!await launch(
+      url,
+      forceSafariVC: false,
+      forceWebView: false,
+      headers: <String, String>{'my_header_key': 'my_header_value'},
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -209,7 +231,7 @@ class MembersCard extends StatelessWidget {
                 style: TextStyle(fontSize: 20.0),
               ),
               Text(
-                '$branch',
+                'MMMUT',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20.0),
               ),
@@ -223,9 +245,22 @@ class MembersCard extends StatelessWidget {
         ),
         Positioned(
           bottom: 190.0,
-          child: CircleAvatar(
-            backgroundImage: AssetImage(image),
-            radius: 50.0,
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ImageViewerScreen(
+                      image:
+                          'https://rcmmm.s3.ap-south-1.amazonaws.com/$image'),
+                ),
+              );
+            },
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'https://rcmmm.s3.ap-south-1.amazonaws.com/$image'),
+              radius: 50.0,
+            ),
           ),
         ),
         Positioned(
@@ -246,9 +281,24 @@ class MembersCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Icon(FontAwesomeIcons.instagram),
-                Icon(FontAwesomeIcons.facebook),
-                Icon(FontAwesomeIcons.linkedin),
+                GestureDetector(
+                  onTap: () {
+                    _launchURL(insta);
+                  },
+                  child: Icon(FontAwesomeIcons.instagram),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    _launchURL(fb);
+                  },
+                  child: Icon(FontAwesomeIcons.facebook),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    _launchURL(linkedin);
+                  },
+                  child: Icon(FontAwesomeIcons.linkedin),
+                ),
               ],
             ),
           ),
