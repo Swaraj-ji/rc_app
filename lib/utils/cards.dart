@@ -4,11 +4,19 @@ import 'package:rc_app/constants.dart';
 class OurCards extends StatelessWidget {
   final Widget child;
   final Color colour;
+  final double bottomPad;
+  final double topPad;
+  final double rightPad;
+  final double leftPad;
   final void Function()? ontap;
   const OurCards({
     required this.child,
     this.colour = const Color(0xFFEEEEEE),
     this.ontap,
+    this.bottomPad = 0.0,
+    this.topPad = 0.0,
+    this.rightPad = 0.0,
+    this.leftPad = 0.0,
   });
 
   @override
@@ -16,7 +24,8 @@ class OurCards extends StatelessWidget {
     return GestureDetector(
       onTap: ontap,
       child: Container(
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.only(
+            left: leftPad, right: rightPad, bottom: bottomPad, top: topPad),
         decoration: BoxDecoration(
           color: colour,
           borderRadius: BorderRadius.circular(kBorderRadius),

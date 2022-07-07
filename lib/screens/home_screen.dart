@@ -11,6 +11,7 @@ import 'package:rc_app/utils/floatingactionbutton_style.dart';
 import 'package:rc_app/utils/home_scr_carousel.dart';
 import 'package:rc_app/utils/cards.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -97,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const Text(
-                  'Madan Mahon Malaviya University of Technology',
+                  'Madan Mohan Malaviya University of Technology',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Padding(
@@ -127,6 +128,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OurCards(
+                      bottomPad: 10.0,
+                      topPad: 10.0,
+                      rightPad: 10.0,
+                      leftPad: 10.0,
                       colour: Color(0xFF00897B),
                       ontap: () {
                         Navigator.pushNamed(context, '/noti');
@@ -170,6 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 20.0,
                         ),
                         OurCards(
+                          bottomPad: 10.0,
                           child: OurEventsCardDecor(
                             image: eventImage["robomania"].toString(),
                             eventName: 'Robomania',
@@ -193,6 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 20.0,
                         ),
                         OurCards(
+                          bottomPad: 10.0,
                           child: OurEventsCardDecor(
                             image: eventImage["synergia"].toString(),
                             eventName: 'Synergia',
@@ -216,6 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 20.0,
                         ),
                         OurCards(
+                          bottomPad: 10.0,
                           child: OurEventsCardDecor(
                             image: eventImage["EnggWeek"].toString(),
                             eventName: "Engineer's Week",
@@ -239,6 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 20.0,
                         ),
                         OurCards(
+                          bottomPad: 10.0,
                           child: OurEventsCardDecor(
                             image: eventImage["CTC"].toString(),
                             eventName: 'Cladding The Code',
@@ -262,6 +271,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 20.0,
                         ),
                         OurCards(
+                          bottomPad: 10.0,
                           child: OurEventsCardDecor(
                             image: eventImage["WebD"].toString(),
                             eventName: 'Web D Classes',
@@ -285,6 +295,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 20.0,
                         ),
                         OurCards(
+                          bottomPad: 10.0,
                           child: OurEventsCardDecor(
                             image: eventImage["4_year"].toString(),
                             eventName: 'Four Year Challenge',
@@ -325,6 +336,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   paddingTopBottom: 10.0,
                   wid: [
                     OurCards(
+                      rightPad: 10,
                       child: UpComingEventsCardDecor(
                         image: upcomingEventPosters[0],
                         eventName: 'Robomania',
@@ -333,6 +345,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     OurCards(
+                      rightPad: 10,
                       child: UpComingEventsCardDecor(
                         image: upcomingEventPosters[1],
                         eventName: 'Synergia',
@@ -341,6 +354,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     OurCards(
+                      rightPad: 10,
                       child: UpComingEventsCardDecor(
                         image: upcomingEventPosters[2],
                         eventName: "Engineer's Week",
@@ -349,6 +363,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     OurCards(
+                      rightPad: 10,
                       child: UpComingEventsCardDecor(
                         image: upcomingEventPosters[3],
                         eventName: 'Cladding The Code',
@@ -357,6 +372,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     OurCards(
+                      rightPad: 10,
                       child: UpComingEventsCardDecor(
                         image: upcomingEventPosters[4],
                         eventName: 'Web D Classes',
@@ -365,6 +381,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     OurCards(
+                      rightPad: 10,
                       child: UpComingEventsCardDecor(
                         image: upcomingEventPosters[5],
                         eventName: 'Four Year Challenge',
@@ -416,7 +433,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Developers: ',
+                        'Creators: ',
                         style: kDevelopersLineTextStyle,
                       ),
                       GestureDetector(
@@ -472,16 +489,30 @@ class HomeScreenFirstCarouselImage extends StatelessWidget {
           ),
         ],
       ),
-      child: Image.network(
-        image,
-        fit: BoxFit.cover,
-        errorBuilder:
-            (BuildContext context, Object exception, StackTrace? stackTrace) {
+      child: CachedNetworkImage(
+        imageUrl: image,
+        fit: BoxFit.fill,
+        progressIndicatorBuilder: (context, url, progress) => Center(
+          child: CircularProgressIndicator(
+            value: progress.progress,
+          ),
+        ),
+        errorWidget: (BuildContext context, url, error) {
           return Image.asset(
             'images/nointernet.gif',
           );
         },
       ),
+      // child: Image.network(
+      //   image,
+      //   fit: BoxFit.cover,
+      //   errorBuilder:
+      //       (BuildContext context, Object exception, StackTrace? stackTrace) {
+      //     return Image.asset(
+      //       'images/nointernet.gif',
+      //     );
+      //   },
+      // ),
     );
   }
 }
@@ -498,23 +529,24 @@ class UpComingEventsCardDecor extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(kBorderRadius),
-              bottomLeft: Radius.circular(kBorderRadius),
+        ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(kBorderRadius),
+            bottomLeft: Radius.circular(kBorderRadius),
+          ),
+          child: CachedNetworkImage(
+            imageUrl: image,
+            fit: BoxFit.cover,
+            progressIndicatorBuilder: (context, url, progress) => Center(
+              child: CircularProgressIndicator(
+                value: progress.progress,
+              ),
             ),
-            child: Image.network(
-              image,
-              height: 150,
-              fit: BoxFit.fill,
-              errorBuilder: (BuildContext context, Object exception,
-                  StackTrace? stackTrace) {
-                return Image.asset(
-                  'images/nointernet.gif',
-                );
-              },
-            ),
+            errorWidget: (BuildContext context, url, error) {
+              return Image.asset(
+                'images/nointernet.gif',
+              );
+            },
           ),
         ),
         Expanded(
@@ -567,21 +599,37 @@ class OurEventsCardDecor extends StatelessWidget {
             topLeft: Radius.circular(kBorderRadius),
             topRight: Radius.circular(kBorderRadius),
           ),
-          child: Image.network(
-            image,
+          child: CachedNetworkImage(
+            imageUrl: image,
             width: 300,
             height: 150,
             fit: BoxFit.fill,
-            errorBuilder: (BuildContext context, Object exception,
-                StackTrace? stackTrace) {
+            progressIndicatorBuilder: (context, url, progress) => Center(
+              child: CircularProgressIndicator(
+                value: progress.progress,
+              ),
+            ),
+            errorWidget: (BuildContext context, url, error) {
               return Image.asset(
                 'images/nointernet.gif',
-                width: 300,
-                height: 150,
-                fit: BoxFit.fill,
               );
             },
           ),
+          // child: Image.network(
+          //   image,
+          //   width: 300,
+          //   height: 150,
+          //   fit: BoxFit.fill,
+          //   errorBuilder: (BuildContext context, Object exception,
+          //       StackTrace? stackTrace) {
+          //     return Image.asset(
+          //       'images/nointernet.gif',
+          //       width: 300,
+          //       height: 150,
+          //       fit: BoxFit.fill,
+          //     );
+          //   },
+          // ),
         ),
         Text(
           eventName,

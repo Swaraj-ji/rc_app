@@ -56,7 +56,7 @@ class ProfileScreen extends StatelessWidget {
                             ],
                           ),
                           CircleAvatar(
-                            backgroundImage: AssetImage(
+                            backgroundImage: NetworkImage(
                               image,
                             ),
                             radius: 100.0,
@@ -87,6 +87,10 @@ class ProfileScreen extends StatelessWidget {
               ),
               Center(
                 child: OurCards(
+                  topPad: 10.0,
+                  bottomPad: 10.0,
+                  rightPad: 10.0,
+                  leftPad: 10.0,
                   colour: const Color(0xFF00897B),
                   child: const Icon(
                     Icons.mail_outline,

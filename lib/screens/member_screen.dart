@@ -16,8 +16,6 @@ class MemberScreen extends StatefulWidget {
 }
 
 class _MemberScreenState extends State<MemberScreen> {
-  bool selected1 = false, selected2 = false, selected3 = false;
-
   void showSheet(List<Map<String, String>> batch) {
     showModalBottomSheet(
       context: context,
@@ -64,7 +62,7 @@ class _MemberScreenState extends State<MemberScreen> {
                   child: Container(
                     child: Center(
                       child: Text(
-                        'Batch of 2022',
+                        'Final Year Members',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.black,
@@ -86,7 +84,7 @@ class _MemberScreenState extends State<MemberScreen> {
                   child: Container(
                     child: Center(
                       child: Text(
-                        'Batch of 2023',
+                        '3rd Year Members',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.black,
@@ -108,7 +106,7 @@ class _MemberScreenState extends State<MemberScreen> {
                   child: Container(
                     child: Center(
                       child: Text(
-                        'Batch of 2024',
+                        '2nd Year Members',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.black,
@@ -129,10 +127,6 @@ class _MemberScreenState extends State<MemberScreen> {
     );
   }
 }
-
-// color: Color(0xFFE81679),
-// color: Color(0xFFE94592),
-// color: Color(0xFFF5B2D1),
 
 class OurDraggableScrollableSheet extends StatelessWidget {
   final List<Map<String, String>> whichBatch;

@@ -34,7 +34,8 @@ const BoxDecoration kBackgroundDecoration = BoxDecoration(
   ),
 );
 
-const TextStyle kFacultyCardNameTextStyle = TextStyle(fontSize: 15);
+const TextStyle kFacultyCardNameTextStyle =
+    TextStyle(fontSize: 15, fontWeight: FontWeight.bold);
 
 const TextStyle kTabTextStyle = TextStyle(
   fontSize: 20,

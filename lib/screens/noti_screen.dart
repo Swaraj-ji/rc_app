@@ -31,7 +31,7 @@ class _NotiScreenState extends State<NotiScreen> {
     setState(() {
       loading = true;
     });
-    FirebaseStore fs = FirebaseStore();
+    FirebaseStoreNoti fs = FirebaseStoreNoti();
     List<String> img = await fs.listNoti();
     print("Completed Fetch");
     // for (String a in img)

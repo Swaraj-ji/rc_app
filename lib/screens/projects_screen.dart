@@ -170,8 +170,14 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image(
-            image: NetworkImage(data[index][0]),
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(kBorderRadius),
+              topRight: Radius.circular(kBorderRadius),
+            ),
+            child: Image(
+              image: NetworkImage(data[index][0]),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -185,9 +191,12 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
               ),
             ),
           ),
-          Text(
-            data[index][2],
-            overflow: TextOverflow.ellipsis,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              data[index][2],
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),

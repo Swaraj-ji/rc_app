@@ -496,6 +496,43 @@
 //     'https://rcmmm.s3.ap-south-1.amazonaws.com/',
 //   ],
 // ];
+List<Map<String, String>> faculties = [
+  {
+    'name': 'Prof. S. K. Soni',
+    'designation': 'Chairman',
+    'institute': 'Council of Student Activities',
+    'img': 'bkpandey.jpg',
+    'mail': 'mailto:bkpmmmec11@gmail.com'
+  },
+  {
+    'name': 'Dr. Rajan Mishra',
+    'designation': 'Vice-Chairman',
+    'institute': 'Council of Student Activities',
+    'img': 'rajanmishra.jpg',
+    'mail': 'mailto:rajanmishra1231@gmail.com',
+  },
+  {
+    'name': 'Dr. Rajesh Kr. Verma',
+    'designation': 'Vice-Chairman',
+    'institute': 'Council of Student Activities',
+    'img': 'rajeshkumar.jpg',
+    'mail': 'mailto:roboticsclub.mmmut@gmail.com'
+  },
+  {
+    'name': 'Dr. Dharmendra Kumar',
+    'designation': 'Faculty Incharge',
+    'institute': 'Technical Subcouncil',
+    'img': 'dharmendra.jpg',
+    'mail': 'mailto:dkece@mmmut.ac.in'
+  },
+  {
+    'name': 'Dr. Bramha P. Pandey',
+    'designation': 'Faculty Advisor',
+    'institute': 'Robotics Club',
+    'img': 'Bramha.jpg',
+    'mail': 'mailto:bppece@mmmut.ac.in'
+  },
+];
 
 List<Map<String, String>> finalYear = [
   {
