@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:rc_app/constants.dart';
 import 'package:rc_app/data/members_information.dart';
@@ -183,20 +182,6 @@ class FacultyCard extends StatelessWidget {
       ontap: onTap,
       child: Row(
         children: [
-          // Padding(
-          //   padding: EdgeInsets.only(
-          //     top: deviceHeight(context) * 0.014,
-          //     left: deviceWidth(context) * 0.024,
-          //     bottom: deviceHeight(context) * 0.014,
-          //     right: deviceWidth(context) * 0.024,
-          //   ),
-          //   child: CircleAvatar(
-          //     backgroundImage: AssetImage(
-          //       image,
-          //     ),
-          //     radius: 70.0,
-          //   ),
-          // ),
           ClipRRect(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(kBorderRadius),
@@ -204,7 +189,15 @@ class FacultyCard extends StatelessWidget {
             ),
             child: Image(
               image: NetworkImage(image),
-              //imageUrl: image,
+              errorBuilder: (BuildContext context, Object exception,
+                  StackTrace? stackTrace) {
+                return Image.asset(
+                  "images/nointernet.gif",
+                  height: deviceHeight(context) * 0.2,
+                  width: deviceWidth(context) * 0.3,
+                  fit: BoxFit.cover,
+                );
+              },
               height: deviceHeight(context) * 0.2,
               width: deviceWidth(context) * 0.3,
               fit: BoxFit.cover,
