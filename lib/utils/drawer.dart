@@ -12,6 +12,11 @@ class OurDrawer extends StatefulWidget {
 }
 
 class _OurDrawerState extends State<OurDrawer> {
+  double deviceHeight(BuildContext context) =>
+      MediaQuery.of(context).size.height;
+
+  double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -28,9 +33,9 @@ class _OurDrawerState extends State<OurDrawer> {
               child: ClipOval(
                 child: Image.asset(
                   'images/rc_logo.jpg',
+                  height: deviceHeight(context) * 0.5,
+                  width: deviceWidth(context) * 0.5,
                   fit: BoxFit.cover,
-                  width: 90,
-                  height: 90,
                 ),
               ),
             ),
