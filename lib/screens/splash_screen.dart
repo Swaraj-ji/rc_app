@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:rc_app/constants.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -16,16 +16,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     print('Inside Init');
-    Timer(const Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, '/home');
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(backGroundImage),
@@ -45,25 +42,52 @@ class _SplashScreenState extends State<SplashScreen> {
             Expanded(
               flex: 1,
               child: Column(
-                children: const [
-                  Text(
-                    'Robotics Club',
+                children: [
+                  DefaultTextStyle(
                     style: kRCTextStyle,
                     textAlign: TextAlign.center,
+                    child: AnimatedTextKit(
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                          'Robotics Club',
+                          speed: const Duration(milliseconds: 100),
+                        ),
+                      ],
+                      totalRepeatCount: 1,
+                    ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                     width: double.infinity,
                   ),
-                  Text(
-                    'Madan Mohan Malaviya University of Technology',
+                  DefaultTextStyle(
                     style: kNormalTextStyle,
                     textAlign: TextAlign.center,
+                    child: AnimatedTextKit(
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                          'Madan Mohan Malaviya University of Technology',
+                          speed: const Duration(milliseconds: 30),
+                        ),
+                      ],
+                      totalRepeatCount: 1,
+                      onFinished: () {
+                        Navigator.pushReplacementNamed(context, '/home');
+                      },
+                    ),
                   ),
-                  Text(
-                    'Gorakhpur',
-                    textAlign: TextAlign.center,
+                  DefaultTextStyle(
                     style: kNormalTextStyle,
+                    textAlign: TextAlign.center,
+                    child: AnimatedTextKit(
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                          'Gorakhpur',
+                          speed: const Duration(milliseconds: 100),
+                        ),
+                      ],
+                      totalRepeatCount: 1,
+                    ),
                   ),
                 ],
               ),

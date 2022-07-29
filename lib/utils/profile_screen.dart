@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rc_app/constants.dart';
 import 'package:rc_app/utils/cards.dart';
 import 'package:url_launcher/url_launcher.dart';
+// Now used for faculty profile screen.
 
 class ProfileScreen extends StatelessWidget {
   final String image;
